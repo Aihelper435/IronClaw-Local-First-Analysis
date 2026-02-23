@@ -1,0 +1,64 @@
+--- Setup Wizard Local-First UX ---
+
+Description: Reorder the inference provider selection in the setup wizard
+to prioritize local/self-hosted options over cloud services.
+
+File: src/setup/wizard.rs
+
+--- a/src/setup/wizard.rs
++++ b/src/setup/wizard.rs
+@@ -780,14 +780,17 @@ impl SetupWizard {
+             return Ok(());
+         }
+ 
+-        let choices = vec![
+-            "NEAR AI (free tier, OAuth login)",
+-            "Anthropic (Claude, requires API key)",
+-            "OpenAI (GPT, requires API key)",
+-            "Ollama (local inference)",
+-            "OpenAI-compatible endpoint (vLLM, LiteLLM, etc.)",
++        // Prioritize local options for privacy-conscious users
++        let choices = vec![
++            "Ollama (local inference, recommended for local-first)",
++            "OpenAI-compatible (local: vLLM, LiteLLM, LM Studio)",
++            "──────────── Cloud Options ────────────",
++            "NEAR AI (free tier, browser OAuth login)",
++            "Anthropic (Claude, requires API key)",
++            "OpenAI (GPT, requires API key)",
+         ];
+ 
+         let choice = select_one(
+-            "Select inference provider:",
++            "Select inference provider (local options first):",
+             &choices,
+         )?;
+ 
+         match choice {
+-            0 => self.setup_nearai().await?,
+-            1 => self.setup_anthropic_or_openai("anthropic").await?,
+-            2 => self.setup_anthropic_or_openai("openai").await?,
+-            3 => self.setup_ollama()?,
+-            4 => self.setup_openai_compatible()?,
++            0 => self.setup_ollama()?,                         // Ollama (local)
++            1 => self.setup_openai_compatible()?,               // OpenAI-compatible (local)
++            2 => {                                               // Separator - re-prompt
++                print_info("Please select an actual provider.");
++                return self.step_inference_provider().await;
++            }
++            3 => self.setup_nearai().await?,                    // NEAR AI (cloud)
++            4 => self.setup_anthropic_or_openai("anthropic").await?,  // Anthropic
++            5 => self.setup_anthropic_or_openai("openai").await?,     // OpenAI
+             _ => unreachable!(),
+         }
+
+---
+
+Rationale:
+- Privacy-focused users see local options first
+- Visual separator makes cloud vs local distinction clear
+- NEAR AI remains easily accessible for users who want it
+- Maintains all existing functionality
+
+Trade-offs:
+- NEAR AI users need one extra keypress
+- Separator line requires handling in selection logic

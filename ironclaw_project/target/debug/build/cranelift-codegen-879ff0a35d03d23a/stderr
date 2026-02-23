@@ -1,0 +1,21 @@
+Writing generated file: /home/ubuntu/ironclaw_project/target/debug/build/cranelift-codegen-879ff0a35d03d23a/out/settings.rs
+Writing generated file: /home/ubuntu/ironclaw_project/target/debug/build/cranelift-codegen-879ff0a35d03d23a/out/types.rs
+Writing generated file: /home/ubuntu/ironclaw_project/target/debug/build/cranelift-codegen-879ff0a35d03d23a/out/opcodes.rs
+Writing generated file: /home/ubuntu/ironclaw_project/target/debug/build/cranelift-codegen-879ff0a35d03d23a/out/inst_builder.rs
+Writing generated file: /home/ubuntu/ironclaw_project/target/debug/build/cranelift-codegen-879ff0a35d03d23a/out/settings-x86.rs
+Writing generated file: /home/ubuntu/ironclaw_project/target/debug/build/cranelift-codegen-879ff0a35d03d23a/out/clif_opt.isle
+Writing generated file: /home/ubuntu/ironclaw_project/target/debug/build/cranelift-codegen-879ff0a35d03d23a/out/clif_lower.isle
+Rebuilding /home/ubuntu/ironclaw_project/target/debug/build/cranelift-codegen-879ff0a35d03d23a/out/isle_opt.rs
+Writing ISLE-generated Rust code to /home/ubuntu/ironclaw_project/target/debug/build/cranelift-codegen-879ff0a35d03d23a/out/isle_opt.rs
+Rebuilding /home/ubuntu/ironclaw_project/target/debug/build/cranelift-codegen-879ff0a35d03d23a/out/isle_x64.rs
+Writing ISLE-generated Rust code to /home/ubuntu/ironclaw_project/target/debug/build/cranelift-codegen-879ff0a35d03d23a/out/isle_x64.rs
+Rebuilding /home/ubuntu/ironclaw_project/target/debug/build/cranelift-codegen-879ff0a35d03d23a/out/isle_aarch64.rs
+Writing ISLE-generated Rust code to /home/ubuntu/ironclaw_project/target/debug/build/cranelift-codegen-879ff0a35d03d23a/out/isle_aarch64.rs
+Rebuilding /home/ubuntu/ironclaw_project/target/debug/build/cranelift-codegen-879ff0a35d03d23a/out/isle_s390x.rs
+Writing ISLE-generated Rust code to /home/ubuntu/ironclaw_project/target/debug/build/cranelift-codegen-879ff0a35d03d23a/out/isle_s390x.rs
+Rebuilding /home/ubuntu/ironclaw_project/target/debug/build/cranelift-codegen-879ff0a35d03d23a/out/isle_riscv64.rs
+Writing ISLE-generated Rust code to /home/ubuntu/ironclaw_project/target/debug/build/cranelift-codegen-879ff0a35d03d23a/out/isle_riscv64.rs
+Rebuilding /home/ubuntu/ironclaw_project/target/debug/build/cranelift-codegen-879ff0a35d03d23a/out/isle_pulley_shared.rs
+Writing ISLE-generated Rust code to /home/ubuntu/ironclaw_project/target/debug/build/cranelift-codegen-879ff0a35d03d23a/out/isle_pulley_shared.rs
+fatal: not a git repository (or any parent up to mount point /home)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
