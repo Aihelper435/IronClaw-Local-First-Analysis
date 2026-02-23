@@ -1,0 +1,76 @@
+--- Smart Default Backend Selection ---
+
+Description: Modify the default backend selection to auto-detect local
+LLM servers (Ollama) before falling back to NEAR AI cloud.
+
+File: src/config/llm.rs
+
+--- a/src/config/llm.rs
++++ b/src/config/llm.rs
+@@ -179,6 +179,26 @@ impl LlmConfig {
+     pub(crate) fn resolve(settings: &Settings) -> Result<Self, ConfigError> {
+-        // Determine backend: env var > settings > default (NearAi)
+-        let backend: LlmBackend = if let Some(b) = optional_env("LLM_BACKEND")? {
++        // Determine backend: env var > settings > auto-detect > default (NearAi)
++        let backend: LlmBackend = if let Some(b) = optional_env("LLM_BACKEND")? {
+             b.parse().map_err(|e| ConfigError::InvalidValue {
+                 key: "LLM_BACKEND".to_string(),
+                 message: e,
+             })?
+         } else if let Some(ref b) = settings.llm_backend {
+             match b.parse() {
+                 Ok(backend) => backend,
+                 Err(e) => {
+                     tracing::warn!(
+                         "Invalid llm_backend '{}' in settings: {}. Using default NearAi.",
+                         b,
+                         e
+                     );
+                     LlmBackend::NearAi
+                 }
+             }
++        } else if optional_env("LLM_BASE_URL")?.is_some() {
++            // Auto-detect: LLM_BASE_URL set implies openai_compatible
++            tracing::info!("LLM_BASE_URL detected, defaulting to openai_compatible backend");
++            LlmBackend::OpenAiCompatible
++        } else if is_ollama_available() {
++            // Auto-detect: Ollama running locally
++            tracing::info!("Local Ollama detected, defaulting to ollama backend");
++            LlmBackend::Ollama
+         } else {
+             LlmBackend::NearAi
+         };
+
++/// Check if Ollama is running locally (non-blocking quick check).
++fn is_ollama_available() -> bool {
++    // Quick synchronous check - only for startup detection
++    // Don't make network calls that could block startup
++    let ollama_url = std::env::var("OLLAMA_BASE_URL")
++        .unwrap_or_else(|_| "http://localhost:11434".to_string());
++    
++    // Only auto-detect if explicitly set or if localhost:11434 is reachable
++    if std::env::var("OLLAMA_BASE_URL").is_ok() {
++        return true; // User explicitly set it
++    }
++    
++    // Try a quick TCP connect to localhost:11434 (non-blocking)
++    use std::net::TcpStream;
++    use std::time::Duration;
++    
++    TcpStream::connect_timeout(
++        &"127.0.0.1:11434".parse().unwrap(),
++        Duration::from_millis(100)
++    ).is_ok()
++}
+
+---
+
+Trade-offs:
+- Adds ~100ms startup delay when checking for Ollama
+- May auto-select Ollama when user intended to use NEAR AI
+- Preserves backwards compatibility: explicit LLM_BACKEND always wins
+
+To apply:
+  cd /path/to/ironclaw
+  # Apply manually - this is a conceptual patch
+  # The actual implementation requires careful integration with the existing code

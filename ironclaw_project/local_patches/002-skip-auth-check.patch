@@ -1,0 +1,25 @@
+--- Skip Authentication for Local Backends ---
+
+Description: This patch documents that NO CHANGES are needed.
+The existing code already correctly skips authentication for non-NEAR AI backends.
+
+File: src/main.rs (lines 211-215)
+
+Existing code (ALREADY CORRECT):
+```rust
+// Session-based auth is only needed for NEAR AI backend without an API key.
+if config.llm.backend == ironclaw::config::LlmBackend::NearAi
+    && config.llm.nearai.api_key.is_none()
+{
+    session.ensure_authenticated().await?;
+}
+```
+
+This conditional ensures that:
+- Ollama users: No auth required ✓
+- OpenAI-compatible users: No NEAR AI auth required ✓
+- OpenAI/Anthropic users: No NEAR AI auth required ✓
+- NEAR AI with API key: No browser OAuth required ✓
+- NEAR AI without API key: OAuth flow triggered ✓
+
+NO PATCH NEEDED - The code is already local-first friendly.

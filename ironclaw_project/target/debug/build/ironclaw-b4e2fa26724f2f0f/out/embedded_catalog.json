@@ -1,0 +1,477 @@
+{"tools":[{
+  "name": "github",
+  "display_name": "GitHub",
+  "kind": "tool",
+  "version": "0.1.0",
+  "description": "GitHub integration for issues, PRs, repos, and code search",
+  "keywords": ["git", "code", "issues", "pull-requests", "repositories"],
+
+  "source": {
+    "dir": "tools-src/github",
+    "capabilities": "github-tool.capabilities.json",
+    "crate_name": "github-tool"
+  },
+
+  "artifacts": {
+    "wasm32-wasip2": {
+      "url": "https://github.com/nearai/ironclaw/releases/latest/download/github-wasm32-wasip2.tar.gz",
+      "sha256": null
+    }
+  },
+
+  "auth_summary": {
+    "method": "manual",
+    "provider": "GitHub",
+    "secrets": ["github_token"],
+    "shared_auth": null,
+    "setup_url": "https://github.com/settings/tokens"
+  },
+
+  "tags": ["default", "development"]
+}
+,{
+  "name": "gmail",
+  "display_name": "Gmail",
+  "kind": "tool",
+  "version": "0.1.0",
+  "description": "Read, send, and manage Gmail messages and threads",
+  "keywords": ["email", "google", "mail", "messaging"],
+
+  "source": {
+    "dir": "tools-src/gmail",
+    "capabilities": "gmail-tool.capabilities.json",
+    "crate_name": "gmail-tool"
+  },
+
+  "artifacts": {
+    "wasm32-wasip2": {
+      "url": "https://github.com/nearai/ironclaw/releases/latest/download/gmail-wasm32-wasip2.tar.gz",
+      "sha256": null
+    }
+  },
+
+  "auth_summary": {
+    "method": "oauth",
+    "provider": "Google",
+    "secrets": ["google_oauth_token"],
+    "shared_auth": "google_oauth_token",
+    "setup_url": "https://console.cloud.google.com/apis/credentials"
+  },
+
+  "tags": ["default", "google", "messaging"]
+}
+,{
+  "name": "google-calendar",
+  "display_name": "Google Calendar",
+  "kind": "tool",
+  "version": "0.1.0",
+  "description": "Create, read, update, and delete Google Calendar events",
+  "keywords": ["calendar", "google", "scheduling", "events"],
+
+  "source": {
+    "dir": "tools-src/google-calendar",
+    "capabilities": "google-calendar-tool.capabilities.json",
+    "crate_name": "google-calendar-tool"
+  },
+
+  "artifacts": {
+    "wasm32-wasip2": {
+      "url": "https://github.com/nearai/ironclaw/releases/latest/download/google-calendar-wasm32-wasip2.tar.gz",
+      "sha256": null
+    }
+  },
+
+  "auth_summary": {
+    "method": "oauth",
+    "provider": "Google",
+    "secrets": ["google_oauth_token"],
+    "shared_auth": "google_oauth_token",
+    "setup_url": "https://console.cloud.google.com/apis/credentials"
+  },
+
+  "tags": ["default", "google", "productivity"]
+}
+,{
+  "name": "google-docs",
+  "display_name": "Google Docs",
+  "kind": "tool",
+  "version": "0.1.0",
+  "description": "Create and edit Google Docs documents",
+  "keywords": ["documents", "google", "writing", "docs"],
+
+  "source": {
+    "dir": "tools-src/google-docs",
+    "capabilities": "google-docs-tool.capabilities.json",
+    "crate_name": "google-docs-tool"
+  },
+
+  "artifacts": {
+    "wasm32-wasip2": {
+      "url": "https://github.com/nearai/ironclaw/releases/latest/download/google-docs-wasm32-wasip2.tar.gz",
+      "sha256": null
+    }
+  },
+
+  "auth_summary": {
+    "method": "oauth",
+    "provider": "Google",
+    "secrets": ["google_oauth_token"],
+    "shared_auth": "google_oauth_token",
+    "setup_url": "https://console.cloud.google.com/apis/credentials"
+  },
+
+  "tags": ["google", "productivity"]
+}
+,{
+  "name": "google-drive",
+  "display_name": "Google Drive",
+  "kind": "tool",
+  "version": "0.1.0",
+  "description": "Upload, download, search, and manage Google Drive files and folders",
+  "keywords": ["storage", "google", "files", "drive"],
+
+  "source": {
+    "dir": "tools-src/google-drive",
+    "capabilities": "google-drive-tool.capabilities.json",
+    "crate_name": "google-drive-tool"
+  },
+
+  "artifacts": {
+    "wasm32-wasip2": {
+      "url": "https://github.com/nearai/ironclaw/releases/latest/download/google-drive-wasm32-wasip2.tar.gz",
+      "sha256": null
+    }
+  },
+
+  "auth_summary": {
+    "method": "oauth",
+    "provider": "Google",
+    "secrets": ["google_oauth_token"],
+    "shared_auth": "google_oauth_token",
+    "setup_url": "https://console.cloud.google.com/apis/credentials"
+  },
+
+  "tags": ["default", "google", "storage"]
+}
+,{
+  "name": "google-sheets",
+  "display_name": "Google Sheets",
+  "kind": "tool",
+  "version": "0.1.0",
+  "description": "Read and write Google Sheets spreadsheet data",
+  "keywords": ["spreadsheets", "google", "data", "sheets"],
+
+  "source": {
+    "dir": "tools-src/google-sheets",
+    "capabilities": "google-sheets-tool.capabilities.json",
+    "crate_name": "google-sheets-tool"
+  },
+
+  "artifacts": {
+    "wasm32-wasip2": {
+      "url": "https://github.com/nearai/ironclaw/releases/latest/download/google-sheets-wasm32-wasip2.tar.gz",
+      "sha256": null
+    }
+  },
+
+  "auth_summary": {
+    "method": "oauth",
+    "provider": "Google",
+    "secrets": ["google_oauth_token"],
+    "shared_auth": "google_oauth_token",
+    "setup_url": "https://console.cloud.google.com/apis/credentials"
+  },
+
+  "tags": ["google", "productivity"]
+}
+,{
+  "name": "google-slides",
+  "display_name": "Google Slides",
+  "kind": "tool",
+  "version": "0.1.0",
+  "description": "Create and edit Google Slides presentations",
+  "keywords": ["presentations", "google", "slides"],
+
+  "source": {
+    "dir": "tools-src/google-slides",
+    "capabilities": "google-slides-tool.capabilities.json",
+    "crate_name": "google-slides-tool"
+  },
+
+  "artifacts": {
+    "wasm32-wasip2": {
+      "url": "https://github.com/nearai/ironclaw/releases/latest/download/google-slides-wasm32-wasip2.tar.gz",
+      "sha256": null
+    }
+  },
+
+  "auth_summary": {
+    "method": "oauth",
+    "provider": "Google",
+    "secrets": ["google_oauth_token"],
+    "shared_auth": "google_oauth_token",
+    "setup_url": "https://console.cloud.google.com/apis/credentials"
+  },
+
+  "tags": ["google", "productivity"]
+}
+,{
+  "name": "okta",
+  "display_name": "Okta",
+  "kind": "tool",
+  "version": "0.1.0",
+  "description": "Okta SSO for user profile, app catalog, and SSO launch links",
+  "keywords": ["sso", "identity", "authentication", "okta"],
+
+  "source": {
+    "dir": "tools-src/okta",
+    "capabilities": "okta-tool.capabilities.json",
+    "crate_name": "okta-tool"
+  },
+
+  "artifacts": {
+    "wasm32-wasip2": {
+      "url": "https://github.com/nearai/ironclaw/releases/latest/download/okta-wasm32-wasip2.tar.gz",
+      "sha256": null
+    }
+  },
+
+  "auth_summary": {
+    "method": "oauth",
+    "provider": "Okta",
+    "secrets": ["okta_oauth_token"],
+    "shared_auth": null,
+    "setup_url": "https://developer.okta.com/docs/guides/implement-oauth-for-okta/main/"
+  },
+
+  "tags": ["identity"]
+}
+,{
+  "name": "slack",
+  "display_name": "Slack",
+  "kind": "tool",
+  "version": "0.1.0",
+  "description": "Post messages, read channels, and manage conversations via Slack API",
+  "keywords": ["messaging", "chat", "workspace"],
+
+  "source": {
+    "dir": "tools-src/slack",
+    "capabilities": "slack-tool.capabilities.json",
+    "crate_name": "slack-tool"
+  },
+
+  "artifacts": {
+    "wasm32-wasip2": {
+      "url": "https://github.com/nearai/ironclaw/releases/latest/download/slack-wasm32-wasip2.tar.gz",
+      "sha256": null
+    }
+  },
+
+  "auth_summary": {
+    "method": "oauth",
+    "provider": "Slack",
+    "secrets": ["slack_bot_token"],
+    "shared_auth": null,
+    "setup_url": "https://api.slack.com/apps"
+  },
+
+  "tags": ["default", "messaging"]
+}
+,{
+  "name": "telegram",
+  "display_name": "Telegram",
+  "kind": "tool",
+  "version": "0.1.0",
+  "description": "Telegram user-mode integration via MTProto for messages and contacts",
+  "keywords": ["messaging", "chat", "telegram", "mtproto"],
+
+  "source": {
+    "dir": "tools-src/telegram",
+    "capabilities": "telegram-tool.capabilities.json",
+    "crate_name": "telegram-tool"
+  },
+
+  "artifacts": {
+    "wasm32-wasip2": {
+      "url": "https://github.com/nearai/ironclaw/releases/latest/download/telegram-wasm32-wasip2.tar.gz",
+      "sha256": null
+    }
+  },
+
+  "auth_summary": {
+    "method": "manual",
+    "provider": "Telegram",
+    "secrets": ["telegram_api_id", "telegram_api_hash"],
+    "shared_auth": null,
+    "setup_url": "https://my.telegram.org/apps"
+  },
+
+  "tags": ["messaging"]
+}
+],"channels":[{
+  "name": "discord",
+  "display_name": "Discord",
+  "kind": "channel",
+  "version": "0.1.0",
+  "description": "Discord Gateway/Webhook channel for slash commands, buttons, and messages",
+  "keywords": ["messaging", "chat", "discord", "bot"],
+
+  "source": {
+    "dir": "channels-src/discord",
+    "capabilities": "discord.capabilities.json",
+    "crate_name": "discord-channel"
+  },
+
+  "artifacts": {
+    "wasm32-wasip2": {
+      "url": "https://github.com/nearai/ironclaw/releases/latest/download/discord-wasm32-wasip2.tar.gz",
+      "sha256": null
+    }
+  },
+
+  "auth_summary": {
+    "method": "manual",
+    "provider": "Discord",
+    "secrets": ["discord_bot_token"],
+    "shared_auth": null,
+    "setup_url": "https://discord.com/developers/applications"
+  },
+
+  "tags": ["messaging"]
+}
+,{
+  "name": "slack",
+  "display_name": "Slack",
+  "kind": "channel",
+  "version": "0.1.0",
+  "description": "Slack Events API channel for receiving and responding to Slack messages",
+  "keywords": ["messaging", "chat", "workspace", "slack"],
+
+  "source": {
+    "dir": "channels-src/slack",
+    "capabilities": "slack.capabilities.json",
+    "crate_name": "slack-channel"
+  },
+
+  "artifacts": {
+    "wasm32-wasip2": {
+      "url": "https://github.com/nearai/ironclaw/releases/latest/download/slack-wasm32-wasip2.tar.gz",
+      "sha256": null
+    }
+  },
+
+  "auth_summary": {
+    "method": "manual",
+    "provider": "Slack",
+    "secrets": ["slack_bot_token", "slack_signing_secret"],
+    "shared_auth": null,
+    "setup_url": "https://api.slack.com/apps"
+  },
+
+  "tags": ["default", "messaging"]
+}
+,{
+  "name": "telegram",
+  "display_name": "Telegram",
+  "kind": "channel",
+  "version": "0.1.0",
+  "description": "Telegram Bot API channel for receiving and responding to messages",
+  "keywords": ["messaging", "bot", "chat", "telegram"],
+
+  "source": {
+    "dir": "channels-src/telegram",
+    "capabilities": "telegram.capabilities.json",
+    "crate_name": "telegram-channel"
+  },
+
+  "artifacts": {
+    "wasm32-wasip2": {
+      "url": "https://github.com/nearai/ironclaw/releases/latest/download/telegram-wasm32-wasip2.tar.gz",
+      "sha256": null
+    }
+  },
+
+  "auth_summary": {
+    "method": "manual",
+    "provider": "Telegram",
+    "secrets": ["telegram_bot_token"],
+    "shared_auth": null,
+    "setup_url": "https://t.me/BotFather"
+  },
+
+  "tags": ["default", "messaging"]
+}
+,{
+  "name": "whatsapp",
+  "display_name": "WhatsApp",
+  "kind": "channel",
+  "version": "0.1.0",
+  "description": "WhatsApp Cloud API channel for receiving and responding to messages",
+  "keywords": ["messaging", "chat", "whatsapp", "meta"],
+
+  "source": {
+    "dir": "channels-src/whatsapp",
+    "capabilities": "whatsapp.capabilities.json",
+    "crate_name": "whatsapp-channel"
+  },
+
+  "artifacts": {
+    "wasm32-wasip2": {
+      "url": "https://github.com/nearai/ironclaw/releases/latest/download/whatsapp-wasm32-wasip2.tar.gz",
+      "sha256": null
+    }
+  },
+
+  "auth_summary": {
+    "method": "manual",
+    "provider": "Meta",
+    "secrets": ["whatsapp_access_token", "whatsapp_verify_token"],
+    "shared_auth": null,
+    "setup_url": "https://developers.facebook.com/apps/"
+  },
+
+  "tags": ["messaging"]
+}
+],"bundles":{
+  "bundles": {
+    "google": {
+      "display_name": "Google Suite",
+      "description": "Gmail, Calendar, Drive, Docs, Sheets, Slides",
+      "extensions": [
+        "tools/gmail",
+        "tools/google-calendar",
+        "tools/google-docs",
+        "tools/google-drive",
+        "tools/google-sheets",
+        "tools/google-slides"
+      ],
+      "shared_auth": "google_oauth_token"
+    },
+    "messaging": {
+      "display_name": "Messaging Channels",
+      "description": "Discord, Telegram, Slack, and WhatsApp channels",
+      "extensions": [
+        "channels/discord",
+        "channels/telegram",
+        "channels/slack",
+        "channels/whatsapp"
+      ],
+      "shared_auth": null
+    },
+    "default": {
+      "display_name": "Recommended Set",
+      "description": "Core tools and channels for a productive setup",
+      "extensions": [
+        "tools/github",
+        "tools/gmail",
+        "tools/google-calendar",
+        "tools/google-drive",
+        "tools/slack",
+        "channels/telegram",
+        "channels/slack"
+      ],
+      "shared_auth": null
+    }
+  }
+}
+}

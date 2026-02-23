@@ -1,0 +1,63 @@
+    Updating crates.io index
+ Downloading crates ...
+  Downloaded unicode-ident v1.0.22
+  Downloaded wit-bindgen v0.36.0
+  Downloaded zmij v1.0.19
+  Downloaded wit-bindgen-rust v0.36.0
+  Downloaded wit-bindgen-core v0.36.0
+  Downloaded wit-bindgen-rust-macro v0.36.0
+  Downloaded wasm-encoder v0.220.1
+  Downloaded syn v2.0.114
+  Downloaded memchr v2.7.6
+  Downloaded wit-bindgen-rt v0.36.0
+  Downloaded wasm-metadata v0.220.1
+  Downloaded bitflags v2.10.0
+  Downloaded anyhow v1.0.100
+  Downloaded wit-parser v0.220.1
+  Downloaded zerocopy v0.8.38
+  Downloaded wit-component v0.220.1
+  Downloaded spdx v0.10.9
+   Compiling proc-macro2 v1.0.106
+   Compiling serde_core v1.0.228
+   Compiling quote v1.0.44
+   Compiling zerocopy v0.8.38
+   Compiling version_check v0.9.5
+   Compiling unicode-ident v1.0.22
+   Compiling zmij v1.0.19
+   Compiling ahash v0.8.12
+   Compiling cfg-if v1.0.4
+   Compiling serde_json v1.0.149
+   Compiling once_cell v1.21.3
+   Compiling equivalent v1.0.2
+   Compiling hashbrown v0.16.1
+   Compiling syn v2.0.114
+   Compiling serde v1.0.228
+   Compiling semver v1.0.27
+   Compiling anyhow v1.0.100
+   Compiling indexmap v2.13.0
+   Compiling bitflags v2.10.0
+   Compiling itoa v1.0.17
+   Compiling memchr v2.7.6
+   Compiling prettyplease v0.2.37
+   Compiling hashbrown v0.14.5
+   Compiling id-arena v2.3.0
+   Compiling log v0.4.29
+   Compiling leb128 v0.2.5
+   Compiling wasmparser v0.220.1
+   Compiling unicode-xid v0.2.6
+   Compiling smallvec v1.15.1
+   Compiling wit-bindgen-rust v0.36.0
+   Compiling spdx v0.10.9
+   Compiling heck v0.5.0
+   Compiling serde_derive v1.0.228
+   Compiling wit-bindgen-rust-macro v0.36.0
+   Compiling wit-bindgen-rt v0.36.0
+error[E0463]: can't find crate for `std`
+  |
+  = note: the `wasm32-wasip2` target may not be installed
+  = help: consider downloading the target with `rustup target add wasm32-wasip2`
+
+For more information about this error, try `rustc --explain E0463`.
+error: could not compile `serde_core` (lib) due to 1 previous error
+warning: build failed, waiting for other jobs to finish...
+cargo:warning=Telegram channel build failed. Run: ./channels-src/telegram/build.sh
