@@ -4,6 +4,20 @@
 [![Rust](https://img.shields.io/badge/rust-1.85%2B-orange.svg)](https://www.rust-lang.org/)
 [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-15%2B-blue.svg)](https://www.postgresql.org/)
 
+---
+
+> ⚠️ **IMPORTANT NOTICE**
+>
+> **This is an experimental, community-maintained fork and is not officially supported by NEAR AI.**
+>
+> This repository contains experimental modifications to enable local-first operation of IronClaw. For the official, supported version of IronClaw, please visit the original repository:
+>
+> 🔗 **Official Repository:** [https://github.com/nearai/ironclaw](https://github.com/nearai/ironclaw)
+>
+> **⚠️ USE AT YOUR OWN RISK:** This fork is provided "as is" without warranty of any kind. The experimental modifications contained herein have not been reviewed or endorsed by the original maintainers. Users should exercise caution and understand that they are solely responsible for any consequences arising from the use of this fork.
+
+---
+
 > **Making IronClaw run locally without any cloud account**
 
 This repository contains a comprehensive analysis of the [nearai/ironclaw](https://github.com/nearai/ironclaw) project, along with patches and documentation to enable local-first operation without requiring a NEAR AI cloud account.
